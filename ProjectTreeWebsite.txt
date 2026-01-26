@@ -1,0 +1,128 @@
+Parking_Fee_Website
+├── .gitignore
+├── ClassDiagram.xml
+├── NoteProject.txt
+├── ProjectTreeApp.txt
+├── ProjectTreeWebsite.txt
+├── README.md
+├── SenquenceDiagram.xml
+├── UseCaseDiagram.xml
+├── ai-service
+├── backend
+│   ├── .env
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── jest.config.js
+│   ├── nodemon.json
+│   ├── package.json
+│   ├── scripts
+│   │   ├── createAdmin.js
+│   │   └── seed.js
+│   ├── server.js
+│   ├── src
+│   │   ├── app.js
+│   │   ├── config
+│   │   │   ├── constants.js
+│   │   │   ├── database.js
+│   │   │   ├── redis.js
+│   │   │   └── sepay.js
+│   │   ├── controllers
+│   │   │   ├── adminController.js
+│   │   │   ├── parkingController.js
+│   │   │   ├── paymentController.js
+│   │   │   └── reportController.js
+│   │   ├── middlewares
+│   │   │   ├── auth.js
+│   │   │   ├── errorHandler.js
+│   │   │   └── validator.js
+│   │   ├── models
+│   │   │   ├── Admin.js
+│   │   │   ├── ParkingSession.js
+│   │   │   ├── Payment.js
+│   │   │   ├── PriceConfig.js
+│   │   │   └── Vehicle.js
+│   │   ├── routes
+│   │   │   ├── admin.routes.js
+│   │   │   ├── index.js
+│   │   │   ├── parking.routes.js
+│   │   │   ├── payment.routes.js
+│   │   │   └── webhook.routes.js
+│   │   ├── services
+│   │   │   ├── cacheService.js
+│   │   │   ├── debtService.js
+│   │   │   ├── parkingService.js
+│   │   │   ├── paymentService.js
+│   │   │   └── sepayService.js
+│   │   └── utils
+│   │       ├── helpers.js
+│   │       ├── logger.js
+│   │       └── response.js
+│   └── tests
+│       ├── integration
+│       └── unit
+├── docker-compose.yml
+├── frontend
+│   ├── .env
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── README.md
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   │   ├── favicon.ico
+│   │   └── index.html
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   │   ├── images
+│   │   │   └── styles
+│   │   │       └── global.css
+│   │   ├── components
+│   │   │   ├── common
+│   │   │   │   ├── Header.jsx
+│   │   │   │   ├── Loading.jsx
+│   │   │   │   ├── Modal.jsx
+│   │   │   │   └── Sidebar.jsx
+│   │   │   ├── dashboard
+│   │   │   │   ├── RevenueChart.jsx
+│   │   │   │   └── StatCard.jsx
+│   │   │   ├── parking
+│   │   │   │   ├── ParkingCard.jsx
+│   │   │   │   ├── ParkingList.jsx
+│   │   │   │   └── QRDisplay.jsx
+│   │   │   └── payment
+│   │   │       ├── DebtList.jsx
+│   │   │       └── PaymentHistory.jsx
+│   │   ├── context
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── ParkingContext.jsx
+│   │   ├── hooks
+│   │   │   ├── useAuth.js
+│   │   │   ├── useParkingData.js
+│   │   │   └── useWebSocket.js
+│   │   ├── index.jsx
+│   │   ├── pages
+│   │   │   ├── ActiveParking.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── DebtParking.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── NotFound.jsx
+│   │   │   └── PaidParking.jsx
+│   │   ├── routes
+│   │   │   ├── AppRoutes.jsx
+│   │   │   └── PrivateRoute.jsx
+│   │   ├── services
+│   │   │   ├── api.js
+│   │   │   ├── authService.js
+│   │   │   ├── parkingService.js
+│   │   │   └── paymentService.js
+│   │   └── utils
+│   │       ├── constants.js
+│   │       ├── formatters.js
+│   │       └── validators.js
+│   ├── tailwind.config.js
+│   └── vite.config.js
+└── scripts
+    ├── backup.sh
+    ├── deploy.sh
+    └── init-project.sh

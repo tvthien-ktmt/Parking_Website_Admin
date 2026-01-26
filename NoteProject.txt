@@ -1,0 +1,51 @@
+KIẾN TRÚC WEB ADMIN – BÃI ĐỖ XE KHÔNG BARRIER (FLOW THỰC TẾ)
+
+I. Xe vào
+→ Camera + AI nhận diện biển số, loại xe, thời gian vào
+→ Backend NodeJS tạo parking session
+→ Trạng thái: IN_PARKING
+→ Web Admin hiển thị xe đang gửi
+
+II. Trong thời gian gửi
+→ Web Admin giám sát danh sách xe trong bãi
+→ Có thể hiển thị phí tạm tính theo thời gian thực
+
+III. Xe ra
+→ AI nhận diện biển số + thời gian ra (hoặc nhân viên xác nhận)
+→ Backend đóng session
+→ Tính thời gian gửi = thời gian ra − thời gian vào
+→ Áp bảng giá theo loại xe
+→ Mỗi 2 giờ thêm 5.000 đồng
+→ Trạng thái: WAIT_PAYMENT
+
+IV. Tạo thanh toán
+→ Backend tạo QR SePay ngay khi xe ra
+→ 1 session = 1 QR
+→ QR gắn với biển số + số tiền
+→ Web Admin hiển thị QR cho khách quét
+
+V. Thanh toán thành công
+→ Khách quét QR và trả tiền
+→ SePay gọi callback về backend
+→ Backend xác thực giao dịch
+→ Cập nhật session: PAID
+→ Web Admin cập nhật realtime
+→ Có thể in / xuất hóa đơn
+
+VI. Xe ra nhưng không thanh toán
+→ Session vẫn được đóng
+→ Trạng thái sau timeout: UNPAID / DEBT
+→ Lưu biển số, thời gian, số tiền, ảnh bằng chứng
+→ Web Admin gắn cờ cảnh báo
+→ Lần sau xe vào → yêu cầu trả nợ trước hoặc từ chối phục vụ
+
+VII. WEB ADMIN QUẢN LÝ
+
+Web trang chủ + trang đăng nhập cho admin(chỉ có đăng nhập chứ k có đăng ký )
+
+Web Xe đang gửi (IN_PARKING)
+
+
+Web Xe đã thanh toán (PAID) (tổng doanh thu trong ngày)
+
+Xe còn nợ (DEBT), chưa thanh toán , cố tình không trả tiền 
